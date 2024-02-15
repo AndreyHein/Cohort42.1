@@ -12,7 +12,7 @@ import java.util.Random;
 public class Lesson13 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        int[] array = createRandomArray(100000, 10000);
+        int[] array = createRandomArray(1000000, 10000);
         System.out.println(("Create random array " + (System.currentTimeMillis() - startTime)) + " ms");
 
         startTime = System.currentTimeMillis();
