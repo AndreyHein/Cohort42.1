@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class Lesson15 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Cat cat1 = new Cat("Barsik", "black", 5, 200);
-        System.out.println(cat1.name + ", " + cat1.color + ", " + cat1.age + " years");
+        Cat cat = new Cat("Barsik", "black", 5, 200);
+        System.out.println(cat.name + ", " + cat.color + ", " + cat.age + " years");
         int action;
         do {
             System.out.println("1. Feed the cat");
@@ -23,25 +23,25 @@ public class Lesson15 {
             action = scanner.nextInt();
             switch (action) {
                 case 1:
-                    cat1.eat();
-                    System.out.println("The cat is " + cat1.satiated() + " % full");
-                    cat1.voice();
+                    cat.eat();
+                    System.out.println("The cat is " + cat.satiated() + " % full");
+                    cat.voice();
                     break;
                 case 2:
-                    cat1.ran();
+                    cat.ran();
                     System.out.println("The cat lost 50 kcal!");
-                    System.out.println("The cat is " + cat1.satiated() + " % full");
-                    cat1.voice();
+                    System.out.println("The cat is " + cat.satiated() + " % full");
+                    cat.voice();
                     break;
                 case 3:
-                    cat1.walk();
+                    cat.walk();
                     System.out.println("The cat lost 25 kcal!");
-                    System.out.println("The cat is " + cat1.satiated() + " % full");
-                    cat1.voice();
+                    System.out.println("The cat is " + cat.satiated() + " % full");
+                    cat.voice();
                     break;
                 case 4:
                     System.out.println("The cat went to bed!");
-                    cat1.voice();
+                    cat.voice();
                     break;
                 default:
                     System.out.println("Enter is wrong!");
