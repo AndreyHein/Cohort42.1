@@ -2,6 +2,12 @@ package lesson15;
 
 import java.util.Scanner;
 
+/**
+ * AIT-TR, cohort 42.1, Java Basic, hm # 15
+ * @author Andrey Hein
+ * @version 18-Feb-2024
+ */
+
 public class HomeWork15 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
