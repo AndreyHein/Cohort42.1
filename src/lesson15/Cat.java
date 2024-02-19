@@ -21,12 +21,12 @@ public class Cat {
     }
 
     public void eat() {
-            System.out.println("1. Meat (200 kcal)");
-            System.out.println("2. Fish (150 kcal)");
-            System.out.println("3. Milk (100 kcal)");
-            System.out.println("4. Vegetables (50 kcal)");
-            System.out.print("What to feed a cat? ");
-            int i = scanner.nextInt();
+        System.out.println("1. Meat (200 kcal)");
+        System.out.println("2. Fish (150 kcal)");
+        System.out.println("3. Milk (100 kcal)");
+        System.out.println("4. Vegetables (50 kcal)");
+        System.out.print("What to feed a cat? ");
+        int i = scanner.nextInt();
         this.food = foodArray[i - 1];
         realVolume += food;
     }

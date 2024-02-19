@@ -22,7 +22,7 @@ public class Car {
         System.out.println("Tank is full!");
     }
 
-    public void startEngine () {
+    public void startEngine() {
         if (realVolume > 0) {
             System.out.println("Drrr...drrr...drr...");
             this.motor = true;
@@ -32,23 +32,23 @@ public class Car {
         }
     }
 
-    public void startEngine (int engine){
+    public void startEngine(int engine){
         System.out.println("Motor stop!");
         this.motor = false;
     }
 
-    public void drive (int distance){
-            if ((distance * fuel) <= realVolume){
-                System.out.println("Let's go !!!");
-                realVolume -= (distance * fuel);
-                System.out.println("Remaining fuel in the tank: " + realVolume + " liters");
-                if (realVolume <= 10) {
-                    System.out.println("Too little fuel, needs to be refuel a car!");
-                }
-            } else if ((distance * fuel) > realVolume && (distance * fuel) <= volume) {
-                System.out.println("Not enough fuel, needs to be refuel a car!");
-            } else {
-                System.out.println("The distance is too long, there is not enough fuel!");
+    public void drive(int distance){
+        if ((distance * fuel) <= realVolume){
+            System.out.println("Let's go !!!");
+            realVolume -= (distance * fuel);
+            System.out.println("Remaining fuel in the tank: " + realVolume + " liters");
+            if (realVolume <= 10) {
+                System.out.println("Too little fuel, needs to be refuel a car!");
             }
+        } else if ((distance * fuel) > realVolume && (distance * fuel) <= volume) {
+            System.out.println("Not enough fuel, needs to be refuel a car!");
+        } else {
+            System.out.println("The distance is too long, there is not enough fuel!");
+        }
     }
 }
