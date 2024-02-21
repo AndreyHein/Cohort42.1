@@ -1,8 +1,13 @@
 package lesson16.homework16;
 
 import lesson16.Plate;
-
 import java.util.Random;
+
+/**
+ * AIT-TR, cohort 42.1, Java Basic, hm # 16
+ * @author Andrey Hein
+ * @version 21-Feb-2024
+ */
 
 public class Task1 {
     public static void main(String[] args) {
