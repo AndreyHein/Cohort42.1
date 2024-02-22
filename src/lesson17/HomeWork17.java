@@ -1,5 +1,11 @@
 package lesson17;
 
+/**
+ * AIT-TR, cohort 42.1, Java Basic, hm # 17
+ * @author Andrey Hein
+ * @version 22-Feb-2024
+ */
+
 public class HomeWork17 {
     public static void main(String[] args) {
         Employee[] personArr = new Employee[5];
