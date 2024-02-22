@@ -45,8 +45,8 @@ public class Interpreter {
         values[idx] = value;
     }
 
-    static void printValue(String varName) {
-        int idx = varName.charAt(0) - 'a';
+    static void printValue(String nameVariable) {
+        int idx = nameVariable.charAt(0) - 'a';
         System.out.println(values[idx]);
     }
 }
