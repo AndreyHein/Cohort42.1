@@ -19,13 +19,13 @@ public class CatArray {
     }
 
     public void eatCat(Plate plate, int i) {
-            food = plate.amountFood();
-            realVolume = 0;
-            maxVolume = a[i].getVolume();
-            if (food >= maxVolume - realVolume) {
-                food = maxVolume - realVolume;
-            }
-            realVolume += food;
-            plate.decreaseFood(food);
+        food = plate.amountFood();
+        realVolume = 0;
+        maxVolume = a[i].getVolume();
+        if (food >= maxVolume - realVolume) {
+            food = maxVolume - realVolume;
+        }
+        realVolume += food;
+        plate.decreaseFood(food);
     }
 }
