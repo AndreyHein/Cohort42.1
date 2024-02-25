@@ -32,4 +32,17 @@ public class Employee {
     public int getAge() {
         return age;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", job='" + job + '\'' +
+                ", email='" + email + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", income=" + income +
+                ", age=" + age +
+                '}';
+    }
 }

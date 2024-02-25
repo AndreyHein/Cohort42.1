@@ -19,6 +19,7 @@ public class HomeWork17 {
         for (Employee arr : personArr) {
             if (arr.getAge() > 40) {
                 arr.printEmployee();
+                System.out.println(arr);
             }
         }
     }
