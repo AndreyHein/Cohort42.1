@@ -38,6 +38,9 @@ public class Interpreter {
         String varName = tokens[0].trim();
         String varValue = tokens[1].trim();
         // check variable name
+        if (varName.charAt(0) >= 'A' && varName.charAt(0) <= 'Z') {
+            varName = varName.toLowerCase();
+        }
         if (!validateVarName(varName)) {
             return;
         }
@@ -67,9 +70,6 @@ public class Interpreter {
         if (varName.isEmpty()) {
             System.out.println("Error: variable name is empty");
             return false;
-        }
-        if (varName.charAt(0) >= 'A' && varName.charAt(0) <= 'Z') {
-            varName = varName.toLowerCase();
         }
         if (varName.charAt(0) < 'a' || varName.charAt(0) > 'z') {
             System.out.println("Error: variable name is invalid");
