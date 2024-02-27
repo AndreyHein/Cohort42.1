@@ -1,5 +1,11 @@
 package lesson18;
 
+/**
+ * AIT-TR, cohort 42.1, Java Basic, hm # 18
+ * @author Andrey Hein
+ * @version 24-Feb-2024
+ */
+
 public class HomeWork18 {
     public static void main(String[] args) {
         Truck lkw1 = new Truck("SCANIA", 40, 5);

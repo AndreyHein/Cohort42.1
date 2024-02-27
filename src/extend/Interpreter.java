@@ -1,5 +1,6 @@
 package extend;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -22,7 +23,7 @@ public class Interpreter {
             String[] tokens = line.split(" ");
             switch (tokens[0]) {
                 case "print":
-                    printValue(tokens[1]);
+                    printValue(tokens[1].toLowerCase());
                     break;
                 case "exit":
                     System.out.println("Exit from interpreted");
@@ -35,12 +36,14 @@ public class Interpreter {
 
     static void assignValue(String line) {
         String[] tokens = line.split("=");
-        String varName = tokens[0].trim();
+        String varName = tokens[0].toLowerCase();
+        // if right side from '=' is not empty
+        if (tokens.length == 1) {
+            System.out.println("Error: invalid command");
+        }
+        varName = varName.trim();
         String varValue = tokens[1].trim();
         // check variable name
-        if (varName.charAt(0) >= 'A' && varName.charAt(0) <= 'Z') {
-            varName = varName.toLowerCase();
-        }
         if (!validateVarName(varName)) {
             return;
         }
