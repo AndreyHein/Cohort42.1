@@ -24,5 +24,9 @@ public class Lesson19 {
         System.out.println(ra);
         ra.add(-10,1);
         System.out.println(ra);
+        int search = 12;
+        System.out.println("For " + search + " --> " + ra.contains(search));
+        search = 9;
+        System.out.println(ra.contains(search) ? "Index --> " + ra.indexOf(search) : "Index not found");
     }
 }
