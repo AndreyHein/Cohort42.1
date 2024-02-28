@@ -2,7 +2,7 @@ package lesson19;
 
 public class RubberArray {
     private final int INIT_DATA_SIZE = 10;
-    private final float RESIZE_KOEF = 1.5f;
+    private final float EXTEND_INDEX = 1.5f;
     private int[] data;
     private int length;
 
@@ -17,7 +17,7 @@ public class RubberArray {
 
     public void dataFull() {
             // create new array
-            int[] newData = new int[(int) (data.length * RESIZE_KOEF)];
+            int[] newData = new int[(int) (data.length * EXTEND_INDEX)];
             // move all items to new array
             for (int i = 0; i < data.length; i++) {
                 newData[i] = data[i];
@@ -55,9 +55,7 @@ public class RubberArray {
     }
 
     public boolean contains(int value) {
-        for (int arr : data) {
-            if (arr == value) { return true; }
-        } return false;
+        return indexOf(value) != -1;
     }
 
     public int indexOf(int value) {
