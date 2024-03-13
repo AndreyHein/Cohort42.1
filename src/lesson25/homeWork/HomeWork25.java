@@ -1,9 +1,15 @@
 package lesson25.homeWork;
-
 import lesson25.homeWork.figure.*;
+
+/**
+ * AIT-TR, cohort 42.1, Java Basic, hm # 22
+ * @author Andrey Hein
+ * @version 06-Mar-2024
+ */
 
 public class HomeWork25 {
     public static void main(String[] args) {
+
         //Task #1
         Human human = new Human();
         System.out.println(human.run());
@@ -11,6 +17,7 @@ public class HomeWork25 {
         System.out.println(sportMan.run());
         Human superMan = new SuperMan();
         System.out.println(superMan.run());
+
         // Task #2
         Vehicle[] vehicle = new Vehicle[3];
         vehicle[0] = new Car("BMW");
@@ -19,6 +26,7 @@ public class HomeWork25 {
         System.out.println(vehicle[1].startEngine());
         vehicle[2] = new Motorcycle("YAMAHA");
         System.out.println(vehicle[2].startEngine());
+
         // Task #3
         Figure[] figure = {
             new Circle(15),
