@@ -2,9 +2,9 @@ package lesson25.homeWork;
 import lesson25.homeWork.figure.*;
 
 /**
- * AIT-TR, cohort 42.1, Java Basic, hm # 22
+ * AIT-TR, cohort 42.1, Java Basic, hm # 25
  * @author Andrey Hein
- * @version 06-Mar-2024
+ * @version 13-Mar-2024
  */
 
 public class HomeWork25 {
