@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @version 12-Feb-24
  */
 
-public class Stack {
+public class SimpleStack {
     static int[] stack = new int[10];
     static int idx = 0;
 
