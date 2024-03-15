@@ -1,8 +1,5 @@
 package lesson26.homeWork;
 
-import lesson25.homeWork.figure.Circle;
-import lesson25.homeWork.figure.Figure;
-
 /**
  * AIT-TR, cohort 42.1, Java Basic, hm # 26
  * @author Andrey Hein
