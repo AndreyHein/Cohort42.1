@@ -7,6 +7,8 @@ package lesson26.homeWork;
  */
 
 public class HomeWork26 {
+    static double sumArea = 0;
+    static double sumPerimeter = 0;
     public static void main(String[] args) {
         Figure[] figure = {
                 new Circle(15),
@@ -14,7 +16,7 @@ public class HomeWork26 {
                 new Rectangle(2,4)
 
         };
-        double sumArea, sumPerimeter;
+
         for (Figure f : figure) {
             sumArea = sumArea + f.calcArea();
             sumPerimeter = sumPerimeter + f.calcPerimeter;
