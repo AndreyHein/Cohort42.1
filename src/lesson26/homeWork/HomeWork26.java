@@ -14,7 +14,6 @@ public class HomeWork26 {
                 new Circle(15),
                 new Triangle(1,2,3),
                 new Rectangle(2,4)
-
         };
 
         for (Figure f : figure) {
