@@ -19,7 +19,7 @@ public class HomeWork26 {
 
         for (Figure f : figure) {
             sumArea = sumArea + f.calcArea();
-            sumPerimeter = sumPerimeter + f.calcPerimeter;
+            sumPerimeter = sumPerimeter + f.calcPerimeter();
         }
         System.out.println(sumArea);
         System.out.println(sumPerimeter);
