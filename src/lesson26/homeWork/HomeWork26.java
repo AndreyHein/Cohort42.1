@@ -13,8 +13,10 @@ public class HomeWork26 {
 
         Figure[] figure = {
                 new Circle(15),
-                new Triangle(1,2,3),
-                new Rectangle(2,4)
+                new Triangle(4,2,3),
+                new Rectangle(2,4),
+                new Triangle(5),
+                new Triangle(4,3)
         };
 
         for (Figure f : figure) {
