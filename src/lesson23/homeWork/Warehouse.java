@@ -12,7 +12,28 @@ public class Warehouse {
 
     public void addAll(List<ProductAndCount> products) {
         // TODO analise and find some problem
-        this.products.addAll(products);
+        for (ProductAndCount pac : products) {
+            Product product = pac.getProduct();
+            int count = pac.getCount();
+            boolean found = false;
+            for (ProductAndCount wpac : this.products) {
+                if (wpac.getProduct().equals(product)) {
+                    // check if we can decrease count of product
+                    if (wpac.getCount() >= count) {
+                        wpac.setCount(wpac.getCount() + count);
+                        found = true;
+                        break;
+                    } else {
+
+                    }
+                    //wpac.setCount(wpac.getCount() - pac.getCount());
+                }
+            }
+            if (!found) {
+                //TODO exception: product not found
+            }
+        }
+
     }
 
     public void deleteAll(List<ProductAndCount> products) {
