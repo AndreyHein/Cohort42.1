@@ -1,5 +1,10 @@
 package lesson28.homework;
 
+/**
+ * AIT-TR, cohort 42.1, Java Basic, hm # 27
+ * @author Andrey Hein
+ * @version 18-Mar-2024
+ */
 public class Main {
     public static void main(String[] args) {
         Bicycle peugeot = new Bicycle("Peugeot",120,40);
