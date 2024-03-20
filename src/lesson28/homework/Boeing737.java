@@ -1,5 +1,10 @@
 package lesson28.homework;
 
+/**
+ * AIT-TR, cohort 42.1, Java Basic, hm # 28
+ * @author Andrey Hein
+ * @version 20-Mar-2024
+ */
 public class Boeing737 {
 
     private int manufactureYear;

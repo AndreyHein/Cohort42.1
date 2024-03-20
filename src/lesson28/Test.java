@@ -1,5 +1,10 @@
 package lesson28;
 
+/**
+ * AIT-TR, cohort 42.1, Java Basic, hm # 28
+ * @author Andrey Hein
+ * @version 20-Mar-2024
+ */
 public class Test {
     public static void main(String[] args) {
         Animal animal = new Animal();
