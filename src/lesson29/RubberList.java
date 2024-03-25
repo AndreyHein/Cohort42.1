@@ -3,45 +3,92 @@ package lesson29;
 public class RubberList {
 
     private int size = 0;
-    private Node first;
-    private Node last;
+    private Node first = null;
+    private Node last = null;
+
+    public Node getFirst() {
+        return first;
+    }
+
+    public Node getLast() {
+        return last;
+    }
 
     public int size() {
         return size;
     }
 
-    public Integer get(int idx) {
-        if (idx == 0) {
-            return first.item;
-        } else {
-            int index = 0;
+    public boolean contains(int value) {
+        return indexOf(value) != -1;
+    }
+
+    public int indexOf(int value) {
+        int index = 0;
+        if (first == null) {
+            return -1;
+        }
+        if (first == last && value == first.item) {
+            return index;
+        }
+        if (first != last) {
             Node cursor = first;
             while (cursor.next != null) {
                 cursor = cursor.next;
                 index++;
-                if (idx == index) {
-                    return cursor.item;
+                if (value == cursor.item) {
+                    return index;
+                }
+            }
+        }
+        return -1;
+    }
+
+    public Integer get(int idx) {
+        if (first != null) {
+            if (idx == 0) {
+                return first.item;
+            } else {
+                int index = 0;
+                Node cursor = first;
+                while (cursor.next != null) {
+                    cursor = cursor.next;
+                    index++;
+                    if (idx == index) {
+                        return cursor.item;
+                    }
                 }
             }
         }
         return null;
     }
 
-    public void add(int value) {
-        if(size == 0) {
-            first = new Node(null, value, null);
-        } else if (size == 1) {
-            last = new Node(first, value, null);
-            first.next = last;
+    public void addBegin(int value) {
+        if (first == null) {
+            Node node = new Node(null, value, null);
+            first = node;
+            last = node;
         } else {
-            Node newLast = new Node(last, value, null);
-            last.next = newLast;
-            last = newLast;
+            Node node = new Node(null, value, first);
+            first.prev = node;
+            first = node;
         }
         size++;
     }
 
-    public void add(int value, int idx) {
+    public void addEnd(int value) {
+        if(last == null) {
+            Node node = new Node(null, value, null);
+            last = node;
+            first = node;
+        } else {
+            Node node = new Node(last, value, null);
+            last.next = node;
+            last = node;
+        }
+        size++;
+    }
+
+    public void addIdx(int value, int idx) {
         //TODO
         if (idx == 0 && size == 0) {
             first = new Node(null, value, null);
@@ -59,20 +106,23 @@ public class RubberList {
                 cursor = cursor.next;
                 index++;
                 if (idx == index) {
-                    //Node node = new Node()
+                    Node left = cursor.prev;
+                    var node = new Node(left, value, cursor);
+                    left.next = node;
                 }
             }
         }
+        size++;
     }
 
     public void remove(int idx) {
         if (idx == 0) {
-           if (size == 1) {
+           if (first == last) {
                first = null;
+               last = null;
            } else {
-               Node newFirst = first.next;
-               newFirst.prev = null;
-               first = newFirst;
+               first = first.next;
+               first.prev = null;
            }
            size--;
         } else {
@@ -91,6 +141,7 @@ public class RubberList {
                    cursor.prev = null;
                    cursor.next = null;
                    size--;
+                   return;
                 }
             }
         }
@@ -99,15 +150,15 @@ public class RubberList {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("[");
-        if (size > 0) {
-            sb.append(first.item);
-        }
-
-        if (size > 1) {
-            Node cursor = first;
-            while (cursor.next != null) {
-                cursor = cursor.next;
-                sb.append(", ").append(cursor.item);
+        if (first != null) {
+            if (first == last) {
+                sb.append(first.item);
+            } else {
+                Node cursor = first;
+                while (cursor.next != null) {
+                    cursor = cursor.next;
+                    sb.append(", ").append(cursor.item);
+                }
             }
         }
         return sb.append("]").toString();
