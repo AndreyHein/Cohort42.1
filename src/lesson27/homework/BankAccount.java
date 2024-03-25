@@ -1,28 +1,35 @@
 package lesson27.homework;
 
 public class BankAccount implements PaymentSystem {
-    private double sumAccount;
+    private double balance;
 
-    public BankAccount(double sumAccount) {
-        this.sumAccount = sumAccount;
+    @Override
+    public void transferMoney(double debit, double credit, PaymentSystem account) {
+        if (debit > 0) {
+            balance -= debit;
+            account.depositMoney(debit);
+        } else if (credit > 0) {
+            balance += credit;
+            account.withdrawMoney(credit);
+        }
     }
 
     @Override
-    public void transferMoney(double sum) {
-        sumAccount += sum;
+    public void depositMoney(double money) {
+        balance += money;
     }
 
     @Override
-    public void withdrawMoney(double sum) {
-        if (sum >= sumAccount) {
+    public void withdrawMoney(double money) {
+        if (money >= balance) {
             System.out.println("Not enough balance in account");
         } else {
-            sumAccount -= sum;
+            balance -= money;
         }
     }
 
     @Override
     public double checkBalance() {
-        return sumAccount;
+        return balance;
     }
 }
