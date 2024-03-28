@@ -16,9 +16,7 @@ import java.util.Random;
 public class HomeWork31 extends JFrame {
     private Random random;
     private final Color[] COLORS = {Color.red, Color.green, Color.blue};
-    private int CIRCLE_COUNT = 100;
-    private int TRIANGLE_COUNT = 10;
-    private int RECTANGLE_COUNT = 50;
+    private int SHAPE_COUNT = 100;
 
     private enum ShapeForm {
         CIRCLES, RECTANGLES, TRIANGLES;
@@ -40,12 +38,14 @@ public class HomeWork31 extends JFrame {
 
         Canvas canvas = new Canvas();
         canvas.setBackground(Color.WHITE);
-
-        DrawTriangle drawTriangle = new DrawTriangle();
-        drawTriangle.setBackground(Color.WHITE);
-
-        DrawRectangle drawRectangle = new DrawRectangle();
-        drawRectangle.setBackground(Color.WHITE);
+        canvas.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                System.out.println(e.getX() + ", " + e.getY());
+                canvas.repaint();
+            }
+        });
 
         JButton btnDrawCircle = new JButton("Draw Circle");
         JButton btnDrawTriangle = new JButton("Draw Triangle");
@@ -55,6 +55,7 @@ public class HomeWork31 extends JFrame {
         btnDrawCircle.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                shapeForm = ShapeForm.CIRCLES;
                 canvas.repaint();
             }
         });
@@ -64,14 +65,16 @@ public class HomeWork31 extends JFrame {
         btnDrawTriangle.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                drawTriangle.repaint();
+                shapeForm = ShapeForm.TRIANGLES;
+                canvas.repaint();
             }
         });
 
         btnDrawRectangle.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                drawRectangle.repaint();
+                shapeForm = ShapeForm.RECTANGLES;
+                canvas.repaint();
             }
         });
 
@@ -84,8 +87,6 @@ public class HomeWork31 extends JFrame {
 
         add(btnPanel, BorderLayout.SOUTH);
         add(canvas, BorderLayout.CENTER);
-        add(drawTriangle, BorderLayout.CENTER);
-        add(drawRectangle, BorderLayout.CENTER);
 
         setVisible(true);
     }
@@ -94,7 +95,7 @@ public class HomeWork31 extends JFrame {
         @Override
         public void paint(Graphics g) {
             super.paint(g);
-            for (int i = 0; i < CIRCLE_COUNT; i++) {
+            for (int i = 0; i < SHAPE_COUNT; i++) {
                 if (shapeForm == ShapeForm.CIRCLES) {
                     int d = random.nextInt(20) + 60;
                     int x = random.nextInt(getWidth() - d);
@@ -131,46 +132,6 @@ public class HomeWork31 extends JFrame {
                     g.drawLine(x1, y1, x3, y3);
                     g.drawLine(x3, y3, x2, y2);
                 }
-            }
-        }
-    }
-
-    private class DrawTriangle extends JPanel {
-        @Override
-        public void paint(Graphics g) {
-            super.paint(g);
-            for (int i = 0; i < TRIANGLE_COUNT; i++) {
-
-                int length = random.nextInt(20) + 80;
-                int h = (int) (length * Math.sqrt(3) / 2);
-                int x1 = random.nextInt(getWidth() - length);
-                int y1 = random.nextInt(getHeight() - length);
-                int x2 = x1 + length;
-                int y2 = y1;
-                int x3 = x2 / 2;
-                int y3 = y2 + h;
-
-                g.drawLine(x1, y1, x2, y2);
-                g.drawLine(x1, y1, x3, y3);
-                g.drawLine(x3, y3, x2, y2);
-            }
-        }
-    }
-
-    private class DrawRectangle extends JPanel {
-        @Override
-        public void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            for (int i = 0; i < RECTANGLE_COUNT; i++) {
-                int l = random.nextInt(20) + 100;
-                int h = random.nextInt(20) + 100;
-                int x1 = random.nextInt(getWidth() - l);
-                int y1 = random.nextInt(getHeight() - h);
-                Color color = COLORS[random.nextInt(COLORS.length)];
-                g.setColor(color);
-                g.fillRect(x1, y1, l, h);
-                g.setColor(Color.black);
-                g.drawRect(x1, y1, l, h);
             }
         }
     }
