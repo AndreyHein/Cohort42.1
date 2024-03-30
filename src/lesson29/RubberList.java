@@ -1,7 +1,13 @@
 package lesson29;
 
+/**
+ * AIT-TR, cohort 42.1, Java Basic, hm # 29
+ * @author Andrey Hein
+ * @version 18-Mar-2024
+ * @modify  30-Mar-2024
+ */
 public class RubberList {
-
+    private int findIndex;
     private int size = 0;
     private Node first = null;
     private Node last = null;
@@ -18,29 +24,15 @@ public class RubberList {
         return size;
     }
 
-    public boolean contains(int value) {
-        return indexOf(value) != -1;
-    }
-
     public int indexOf(int value) {
-        int index = 0;
-        if (first == null) {
-            return -1;
-        }
-        if (first == last && value == first.item) {
-            return index;
-        }
-        if (first != last) {
-            Node cursor = first;
-            while (cursor.next != null) {
-                cursor = cursor.next;
-                index++;
-                if (value == cursor.item) {
-                    return index;
-                }
-            }
+        Node node = findByValue(value);
+        if (node != null) {
+            return findIndex;
         }
         return -1;
+    }
+    public boolean contains(int value) {
+        return indexOf(value) != -1;
     }
 
     public Integer get(int idx) {
@@ -89,61 +81,69 @@ public class RubberList {
     }
 
     public void addIdx(int value, int idx) {
-        //TODO
-        if (idx == 0 && size == 0) {
+        if (idx >= 0 && first == null) {
             first = new Node(null, value, null);
-        } if (idx == 0 && size == 1) {
-            Node newFirst = new Node(null, value, first);
-            first.prev = newFirst;
-            first = newFirst;
-        } if (idx > 0 && size == 1) {
-            last = new Node(first, value, null);
-            first.next = last;
+        }
+        if (first == last) {
+            if (idx == 0) {
+                Node newFirst = new Node(null, value, first);
+                first.prev = newFirst;
+                first = newFirst;
+            }
+            if (idx > 0) {
+                last = new Node(first, value, null);
+                first.next = last;
+            }
         } else {
-            int index = 0;
-            Node cursor = first;
-            while (cursor.next != null) {
-                cursor = cursor.next;
-                index++;
-                if (idx == index) {
-                    Node left = cursor.prev;
-                    var node = new Node(left, value, cursor);
+            Node findNote = findByIndex(idx);
+            if (findNote == null) {
+                return;
+            }
+            if (findNote == last) {
+                Node node = new Node(last, value, null);
+                last.next = node;
+                last = node;
+            } else {
+                    Node left = findNote.prev;
+                    Node node = new Node(left, value, findNote);
                     left.next = node;
-                }
             }
         }
         size++;
     }
 
     public void remove(int idx) {
-        if (idx == 0) {
-           if (first == last) {
-               first = null;
-               last = null;
-           } else {
-               first = first.next;
-               first.prev = null;
-           }
-           size--;
-        } else {
-            int index = 0;
-            Node cursor = first;
-            while (cursor.next != null) {
-                cursor = cursor.next;
-                index++;
-                if (idx == index) {
-                   Node left = cursor.prev;
-                   Node right = cursor.next;
-                   left.next = right;
-                   if (right != null) {
-                       right.prev = left;
-                   }
-                   cursor.prev = null;
-                   cursor.next = null;
-                   size--;
-                   return;
+        if (first != null) {
+            if (idx == 0 && first == last) {
+                first = null;
+                last = null;
+            }
+            if (idx == 0 && first != last) {
+                Node right = first.next;
+                right.prev = null;
+                first = right;
+                if (first.next == null) {
+                    last = right;
+                }
+            } else {
+                Node findNote = findByIndex(idx);
+                if (findNote == null) {
+                    return;
+                }
+                if (findNote.next == null) {
+                    Node left = findNote.prev;
+                    last = left;
+                    last.next = null;
+                } else {
+                    Node left = findNote.prev;
+                    Node right = findNote.next;
+                    left.next = right;
+                    right.prev = left;
+                    findNote.prev = null;
+                    findNote.next = null;
                 }
             }
+            size--;
         }
     }
 
@@ -151,9 +151,8 @@ public class RubberList {
     public String toString() {
         StringBuilder sb = new StringBuilder("[");
         if (first != null) {
-            if (first == last) {
-                sb.append(first.item);
-            } else {
+            sb.append(first.item);
+            if (first != last) {
                 Node cursor = first;
                 while (cursor.next != null) {
                     cursor = cursor.next;
@@ -162,6 +161,45 @@ public class RubberList {
             }
         }
         return sb.append("]").toString();
+    }
+
+    private Node findByIndex(int idx) {
+        if (idx == 0 || first == last) {
+            return first;
+        }
+        while (first != null) {
+            findIndex = 0;
+            Node cursor = first;
+            while (cursor.next != null) {
+                cursor = cursor.next;
+                findIndex++;
+                if (idx == findIndex) {
+                    return cursor;
+                }
+            }
+        }
+        return null;
+    }
+
+    private Node findByValue(int value) {
+        if (first != null) {
+            if (first == last && first.item == value) {
+                return first;
+            }
+            findIndex = 0;
+            Node cursor = first;
+            while (cursor.next != null) {
+                if (cursor.item == value) {
+                    return cursor;
+                }
+                cursor = cursor.next;
+                findIndex++;
+            }
+            if (cursor.item == value) {
+                return cursor;
+            }
+        }
+        return null;
     }
 
     private static class Node {
