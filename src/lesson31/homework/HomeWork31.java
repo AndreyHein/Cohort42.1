@@ -8,9 +8,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * AIT-TR, cohort 42.1, Java Basic, Lesson #31
- *
- * @version 25-Mar-24
+ * AIT-TR, cohort 42.1, Java Basic, hm # 31
+ * @author Andrey Hein
+ * @version 25-Mar-2024
  */
 public class HomeWork31 extends JFrame {
 
