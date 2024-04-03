@@ -42,7 +42,8 @@ public class HomeWork32 {
         }
 
         // Task #2
-        array = new ArrayToArrayList<>(strArray);
         System.out.println(array.toArrayList(strArray));
+        System.out.println(array.toArrayList(intArray));
+        System.out.println(array.toArrayList(chArray));
     }
 }
