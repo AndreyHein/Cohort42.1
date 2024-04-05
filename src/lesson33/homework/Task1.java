@@ -3,6 +3,11 @@ package lesson33.homework;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * AIT-TR, cohort 42.1, Java Basic, hm # 33 Task#1
+ * @author Andrey Hein
+ * @version 05-Apr-2024
+ */
 public class Task1 {
     public static void main(String[] args) {
         List<Integer> arrList1 = new ArrayList<>();
