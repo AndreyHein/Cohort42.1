@@ -5,6 +5,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * AIT-TR, cohort 42.1, Java Basic, hm # 34
+ * @author Andrey Hein
+ * @version 05-Apr-2024
+ */
 public class Lesson34 {
     public static void main(String[] args) {
         List<Integer> ints = new ArrayList<>(List.of(5, 3, 6, 2, 4, 1 ));
