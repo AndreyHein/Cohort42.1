@@ -52,19 +52,28 @@ public class SwingTicTacToe extends JFrame {
         @Override
         public void paint(Graphics g) {
             super.paint(g);
+            int width = getWidth();
+            int height = getHeight();
+            int cellWidth = width / 3;
+            int cellHeight = height / 3;
             g.setColor(Color.lightGray);
             g.drawLine(0, 1, getWidth(), 1);
             for (int i = 0; i < 2; i++) {
-                g.drawLine(0, getHeight() / 3 * (i + 1), getWidth(), getHeight() / 3 * (i + 1));
-                g.drawLine(getWidth() / 3 * (i + 1), 1, getWidth() / 3 * (i + 1), getHeight());
+                g.drawLine(0, cellHeight * (i + 1), width, cellHeight * (i + 1));
+                g.drawLine(cellWidth * (i + 1), 1, cellWidth * (i + 1), height);
             }
             for (int x = 0; x < 3; x++) {
                 for (int y = 0; y < 3; y++) {
                     if (table[x][y] == 'x') {
                         //TODO нарисовать крестик
+                        g.setColor(Color.blue);
+                        g.drawLine(cellWidth * x, cellHeight * y,cellWidth * (x + 1), cellHeight * (y + 1));
+                        g.drawLine(cellWidth * (x + 1), cellHeight * y, cellWidth * x, cellHeight * (y + 1));
                     }
                     if (table[x][y] == 'o') {
                         //TODO нарисовать нолик
+                        g.setColor(Color.blue);
+                        g.drawOval(cellWidth * x, cellHeight * y, cellWidth, cellHeight);
                     }
                 }
             }
