@@ -43,7 +43,7 @@ public class PersonSystem {
                     System.out.println(persons);
                     break;
                 case 'f':
-                    System.out.println("Find: id: ");
+                    System.out.print("Find: id: ");
                     id = scanner.nextInt();
                     System.out.println(persons.find(id));
                     break;
