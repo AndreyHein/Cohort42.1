@@ -6,9 +6,9 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * AIT-TR, cohort 42.1, Java Basic, hm # 34
- * @author Andrey Hein
- * @version 05-Apr-2024
+ * AIT-TR, cohort 42.1, Java Basic, Lesson #34
+ *
+ * @version 05-Apr-24
  */
 public class Lesson34 {
     public static void main(String[] args) {

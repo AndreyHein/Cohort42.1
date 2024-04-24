@@ -3,6 +3,11 @@ package lesson36;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * AIT-TR, cohort 42.1, Java Basic, Lesson #36
+ *
+ * @version 10-Apr-24
+ */
 public class Lesson36 {
     public static void main(String[] args) {
         String text = "To be or not to be that is the question " +

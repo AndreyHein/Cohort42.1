@@ -4,6 +4,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+/**
+ * AIT-TR, cohort 42.1, Java Basic, Lesson #38
+ *
+ * @version 15-Apr-24
+ */
 public class Lesson38 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
