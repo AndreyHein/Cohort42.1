@@ -5,6 +5,7 @@ import lesson42.LibraryBookRepository;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -52,9 +53,9 @@ public class HomeWork42 {
             System.out.println("Author: " + list);
             authorList.forEach(System.out::println);
         }
-        List<String> publisher = books.stream()
+        Set<String> publisher = books.stream()
                 .map(b -> b.getPublisher())
-                .distinct().collect(Collectors.toList());
+                .collect(Collectors.toSet());
         System.out.println("Publisher:");
         publisher.forEach(System.out::println);
     }
