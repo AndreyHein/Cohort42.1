@@ -29,13 +29,13 @@ public class HomeWork42 {
         System.out.println("List of odd numbers:" + oddNumbers);
 
         // Task #2
-        List<String> strList = List.of("hEllO", "JaVa", "LAMBDA");
+        List<String> words = List.of("hEllO", "JaVa", "LAMBDA");
 
-        List<String> updWords = strList.stream()
+        List<String> updWords = words.stream()
                 .map(word ->word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
                 .collect(Collectors.toList());
 
-        System.out.println("Unconverted list: " + strList);
+        System.out.println("Unconverted list: " + words);
         System.out.println("Converted list: " + updWords);
 
         // Task #3
