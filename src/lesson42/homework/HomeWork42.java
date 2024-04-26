@@ -53,6 +53,9 @@ public class HomeWork42 {
             authorList.forEach(System.out::println);
         }
         List<String> publisher = books.stream()
-                .
+                .map(b -> b.getPublisher())
+                .distinct().collect(Collectors.toList());
+        System.out.println("Publisher:");
+        publisher.forEach(System.out::println);
     }
 }
