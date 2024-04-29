@@ -15,7 +15,7 @@ public class HomeWork43 {
         } catch (MyArraySizeException e) {
             System.out.println("Array size is not 4x4");
         } catch (MyArrayDataException e) {
-            System.out.println("Invalid data at: " + e.getMessageDetails());
+            System.out.println(e.getMessageDetails());
         }
     }
 
@@ -33,7 +33,7 @@ public class HomeWork43 {
                 try {
                     sumArr += Integer.parseInt(element);
                 } catch (NumberFormatException e) {
-                    throw new MyArrayDataException("Invalid data",row, column);
+                    throw new MyArrayDataException("Invalid data at: ",row, column);
                 }
             }
         }
