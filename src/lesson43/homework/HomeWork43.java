@@ -1,5 +1,10 @@
 package lesson43.homework;
 
+/**
+ * AIT-TR, cohort 42.1, Java Basic, hm # 43
+ * @author Andrey Hein
+ * @version 29-Apr-2024
+ */
 public class HomeWork43 {
     public static void main(String[] args) {
         String[][] array = {
