@@ -40,17 +40,17 @@ public class HomeWork42 {
         System.out.println("Converted list: " + updWords);
 
         // Task #3
-        List<String> author = List.of("Taras Shevchenko", "Ivan Franko", "Lesia Ukrainka",
+        List<String> authors = List.of("Taras Shevchenko", "Ivan Franko", "Lesia Ukrainka",
                 "Ivan Nechuy-Levytsky", "Mykhailo Kotsiubynsky", "Panas Myrny", "Pavlo Tychyna");
         LibraryBookRepository repository = new LibraryBookRepository();
         repository.init();
         Collection<LibraryBook> books = repository.values();
         books.forEach(System.out::println);
-        for (String list : author) {
+        for (String author : authors) {
             List<String> authorList = books.stream()
-                    .filter(b -> b.getAuthor().equals(list))
+                    .filter(b -> b.getAuthor().equals(author))
                     .map(b -> b.getBookTitle()).collect(Collectors.toList());
-            System.out.println("Author: " + list);
+            System.out.println("Author: " + author);
             authorList.forEach(System.out::println);
         }
         Set<String> publisher = books.stream()
