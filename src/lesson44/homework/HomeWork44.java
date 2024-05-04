@@ -18,7 +18,7 @@ public class HomeWork44 {
         Map<String, Integer> userMap = new HashMap<>();
         try (BufferedReader reader = new BufferedReader(new FileReader("transaktion.txt"));
              FileWriter lessWriter = new FileWriter("less.txt");
-             FileWriter moreWriter = new FileWriter("more.txt")){
+             FileWriter moreWriter = new FileWriter("more.txt")) {
 
             String line;
             while ((line = reader.readLine()) != null) {
